@@ -29,7 +29,7 @@ const Page = () => {
       <Box display={{ md: "flex" }}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page-title">
-            Cao Thien Duy
+            Cao Thiện Duy
           </Heading>
           <p>Full-stack developer</p>
         </Box>
