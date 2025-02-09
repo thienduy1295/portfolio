@@ -4,6 +4,7 @@ import { WorkGridItem } from '../components/grid-item'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import netflix from '../public/images/netflix-mui.png'
+import mh1 from '../public/images/mh1.png'
 
 const Works = () => {
   return (
@@ -22,24 +23,11 @@ const Works = () => {
             </WorkGridItem>
           </Section>
           <Section>
-            <WorkGridItem id="netflix" title="Netflix" thumbnail={netflix}>
-              A website build with ReactJS, Material UI and Tailwind CSS. It
-              uses The Movie Database API to fetch movies and display them on
-              the website.
-            </WorkGridItem>
-          </Section>
-          <Section>
-            <WorkGridItem id="netflix" title="Netflix" thumbnail={netflix}>
-              A website build with ReactJS, Material UI and Tailwind CSS. It
-              uses The Movie Database API to fetch movies and display them on
-              the website.
-            </WorkGridItem>
-          </Section>
-          <Section>
-            <WorkGridItem id="netflix" title="Netflix" thumbnail={netflix}>
-              A website build with ReactJS, Material UI and Tailwind CSS. It
-              uses The Movie Database API to fetch movies and display them on
-              the website.
+            <WorkGridItem id="MHArchitect" title="MHArchitect" thumbnail={mh1}>
+              A website build with ReactJS, Marterial UI and Tailwind CSS. This
+              project focuses on managing Building Information Modeling (BIM)
+              and tasks efficiently, providing a comprehensive solution for
+              architects and engineers.
             </WorkGridItem>
           </Section>
         </SimpleGrid>

@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
@@ -6,19 +6,20 @@ import {
   Heading,
   Image,
   Link,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import NextLink from "next/link";
-import { BioSection, BioYear } from "../components/bio";
-import Paragraph from "../components/paragraph";
-import Section from "../components/section";
+  useColorModeValue
+} from '@chakra-ui/react'
+import NextLink from 'next/link'
+import { BioSection, BioYear } from '../components/bio'
+import Paragraph from '../components/paragraph'
+import Section from '../components/section'
+import { TypeAnimation } from 'react-type-animation'
 
 const Page = () => {
   return (
     <Container>
       <Box
         borderRadius="lg"
-        bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
+        bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         p={3}
         mb={6}
         align="center"
@@ -26,12 +27,17 @@ const Page = () => {
         Hello, I&apos;m a full-stack developer based in Vietnam!
       </Box>
 
-      <Box display={{ md: "flex" }}>
+      <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page-title">
-            Cao Thiện Duy
+            <TypeAnimation
+              sequence={['Cao Thiện Duy', 1000, 'Full-stack Developer', 1000]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              style={{ display: 'inline-block' }}
+            />
           </Heading>
-          <p>Full-stack developer</p>
         </Box>
         <Box
           flexShrink={0}
@@ -114,7 +120,7 @@ const Page = () => {
         </BioSection>
       </Section>
     </Container>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

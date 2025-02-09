@@ -8,19 +8,21 @@ import { Meta, Title, WorkImage } from '../../components/work'
 
 const Work = () => {
   return (
-    <Layout title="Netflix">
+    <Layout title="MHArchitect">
       <Container>
         <Title>
-          Netflix <Badge>2022</Badge>
+          MHArchitect <Badge>2022</Badge>
         </Title>
         <P>
-          This project is a Netflix clone built using basic CSS and React. It replicates the user interface and functionality of Netflix, providing a seamless experience for browsing and watching movies.
+          This project focuses on managing Building Information Modeling (BIM)
+          and tasks efficiently, providing a comprehensive solution for
+          architects and engineers.
         </P>
         <List ml={4} my={4}>
           <ListItem>
             <Meta>Website</Meta>
-            <Link as={NextLink} href="https://duy-movie-app.netlify.app">
-              https://duy-movie-app.netlify.app <ExternalLinkIcon mx="2px" />
+            <Link as={NextLink} href="https://duy-mh-architects.netlify.app/">
+            https://duy-mh-architects.netlify.app/ <ExternalLinkIcon mx="2px" />
             </Link>
           </ListItem>
           <ListItem>
@@ -33,9 +35,10 @@ const Work = () => {
           </ListItem>
         </List>
 
-        <WorkImage src="/images/netflix-1.png" alt="Netflix" />
+        <WorkImage src="/images/mh1.png" alt="MH1" />
 
-        <WorkImage src="/images/netflix-2.png" alt="Netflix" />
+        <WorkImage src="/images/bim-library.jpeg" alt="BIM" />
+        <WorkImage src="/images/task-management.jpeg" alt="TASK" />
       </Container>
     </Layout>
   )
