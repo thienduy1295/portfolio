@@ -22,7 +22,8 @@ const Work = () => {
           <ListItem>
             <Meta>Website</Meta>
             <Link as={NextLink} href="https://duy-mh-architects.netlify.app/">
-            https://duy-mh-architects.netlify.app/ <ExternalLinkIcon mx="2px" />
+              https://duy-mh-architects.netlify.app/{' '}
+              <ExternalLinkIcon mx="2px" />
             </Link>
           </ListItem>
           <ListItem>

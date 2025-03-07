@@ -1,8 +1,8 @@
-import { Box, Container } from "@chakra-ui/react";
-import Head from "next/head";
-import Navbar from "../navbar";
-import NoSsr from "../no-ssr";
-import VoxelDog from "../voxel-dog";
+import { Box, Container } from '@chakra-ui/react'
+import Head from 'next/head'
+import Navbar from '../navbar'
+import NoSsr from '../no-ssr'
+import VoxelDog from '../voxel-dog'
 
 const Main = ({ children, router }) => {
   return (
@@ -26,7 +26,7 @@ const Main = ({ children, router }) => {
         {children}
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

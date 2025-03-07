@@ -14,7 +14,9 @@ const Work = () => {
           Netflix <Badge>2022</Badge>
         </Title>
         <P>
-          This project is a Netflix clone built using basic CSS and React. It replicates the user interface and functionality of Netflix, providing a seamless experience for browsing and watching movies.
+          This project is a Netflix clone built using basic CSS and React. It
+          replicates the user interface and functionality of Netflix, providing
+          a seamless experience for browsing and watching movies.
         </P>
         <List ml={4} my={4}>
           <ListItem>
