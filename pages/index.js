@@ -63,16 +63,16 @@ const Page = () => {
           Work
         </Heading>
         <Paragraph>
-          Hi there! 👋 I'm Thien Duy, a passionate Full-stack Developer who
+          Hi there! 👋 I&apos;m Thien Duy, a passionate Full-stack Developer who
           turns coffee into code! With 3 years of crafting digital experiences,
-          I specialize in building web applications that don't just work – they
-          wow. From pixel-perfect frontends to robust backends, I love solving
-          complex puzzles and creating seamless user experiences. When I'm not
-          debating about code architecture or optimizing performance, you might
-          find me experimenting with new technologies or contributing to
-          open-source projects. Think of me as your technical Swiss Army knife –
-          versatile, reliable, and always ready to tackle the next exciting
-          challenge!
+          I specialize in building web applications that don&apos;t just work –
+          they wow. From pixel-perfect frontends to robust backends, I love
+          solving complex puzzles and creating seamless user experiences. When
+          I&apos;m not debating about code architecture or optimizing
+          performance, you might find me experimenting with new technologies or
+          contributing to open-source projects. Think of me as your technical
+          Swiss Army knife – versatile, reliable, and always ready to tackle the
+          next exciting challenge!
         </Paragraph>
         <Box align="center" my={4}>
           <Link as={NextLink} href="/works">
