@@ -5,6 +5,7 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import netflix from '../public/images/netflix-mui.png'
 import mh1 from '../public/images/mh1.png'
+import locationPicker from '../public/images/location-picker.png'
 
 const Works = () => {
   return (
@@ -28,6 +29,20 @@ const Works = () => {
               project focuses on managing Building Information Modeling (BIM)
               and tasks efficiently, providing a comprehensive solution for
               architects and engineers.
+            </WorkGridItem>
+          </Section>
+          <Section>
+            <WorkGridItem
+              id="LocationPicker"
+              title="Location Picker"
+              thumbnail={locationPicker}
+            >
+              A modern and intuitive location picker component built with React
+              and Google Maps API, styled with Shadcn UI and Tailwind CSS. This
+              component offers interactive map selection, smart address
+              autocomplete, customizable markers, and real-time coordinate
+              tracking. Perfect for applications requiring precise location
+              selection with a polished user interface.
             </WorkGridItem>
           </Section>
         </SimpleGrid>
