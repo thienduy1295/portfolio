@@ -9,11 +9,7 @@ import {
   Icon,
   useColorModeValue
 } from '@chakra-ui/react'
-import { 
-  FaGithub, 
-  FaLinkedin, 
-  FaEnvelope, 
-} from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
 import P from '../components/paragraph'
@@ -58,24 +54,18 @@ const Contact = () => {
 
         <Section delay={0.2}>
           <VStack spacing={4} align="stretch" my={6}>
-            <ContactLink 
-              icon={FaEnvelope} 
-              href="mailto:thienduy1295@gmail.com"
-            >
+            <ContactLink icon={FaEnvelope} href="mailto:thienduy1295@gmail.com">
               thienduy1295@gmail.com
             </ContactLink>
 
-            <ContactLink 
-              icon={FaLinkedin} 
+            <ContactLink
+              icon={FaLinkedin}
               href="https://www.linkedin.com/in/duycaoth/"
             >
               LinkedIn Profile
             </ContactLink>
 
-            <ContactLink 
-              icon={FaGithub} 
-              href="https://github.com/thienduy1295"
-            >
+            <ContactLink icon={FaGithub} href="https://github.com/thienduy1295">
               GitHub Profile
             </ContactLink>
           </VStack>
@@ -90,9 +80,7 @@ const Contact = () => {
             bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
             css={{ backdropFilter: 'blur(10px)' }}
           >
-            <Text>
-              Response Time: Usually within 24 hours
-            </Text>
+            <Text>Response Time: Usually within 24 hours</Text>
           </Box>
         </Section>
       </Container>
@@ -100,4 +88,4 @@ const Contact = () => {
   )
 }
 
-export default Contact 
+export default Contact

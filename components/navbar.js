@@ -36,6 +36,21 @@ const LinkItem = ({ href, target, path, children, ...props }) => {
   )
 }
 
+const MenuLinkItem = ({ href, path, children }) => {
+  const active = path === href
+  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+  return (
+    <MenuItem
+      as={NextLink}
+      href={href}
+      bg={active ? 'grassTeal' : undefined}
+      color={active ? '#202023' : inactiveColor}
+    >
+      {children}
+    </MenuItem>
+  )
+}
+
 const Navbar = props => {
   const { path } = props
 
@@ -86,32 +101,23 @@ const Navbar = props => {
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu>
+            <Menu isLazy>
               <MenuButton
                 as={IconButton}
-                aria-label="Options"
                 icon={<HamburgerIcon />}
                 variant="outline"
+                aria-label="Options"
               />
               <MenuList>
-                <MenuItem as="a" href="/">
-                  About
-                </MenuItem>
-                <MenuItem as="a" href="/works">
+                <MenuLinkItem href="/works" path={path}>
                   Works
-                </MenuItem>
-                <MenuItem as="a" href="/posts">
-                  Posts
-                </MenuItem>
-                <MenuItem as="a" href="/skills">
+                </MenuLinkItem>
+                <MenuLinkItem href="/skills" path={path}>
                   Skills
-                </MenuItem>
-                <MenuItem as="a" href="/contact">
+                </MenuLinkItem>
+                <MenuLinkItem href="/contact" path={path}>
                   Contact
-                </MenuItem>
-                <MenuItem as="a" href="https://www.craftz.dog/">
-                  View Source
-                </MenuItem>
+                </MenuLinkItem>
               </MenuList>
             </Menu>
           </Box>

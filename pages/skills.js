@@ -1,4 +1,11 @@
-import { Container, Heading, SimpleGrid, Box, Text, useColorModeValue } from '@chakra-ui/react'
+import {
+  Container,
+  Heading,
+  SimpleGrid,
+  Box,
+  Text,
+  useColorModeValue
+} from '@chakra-ui/react'
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
 
@@ -45,12 +52,7 @@ const Skills = () => {
       'Bootstrap',
       'Framer Motion'
     ],
-    'Backend Development': [
-      'Node.js',
-      'Express.js',
-      'RESTful APIs',
-      'MongoDB',
-    ],
+    'Backend Development': ['Node.js', 'Express.js', 'RESTful APIs', 'MongoDB'],
     'Development Tools': [
       'Git',
       'VS Code',
@@ -79,4 +81,4 @@ const Skills = () => {
   )
 }
 
-export default Skills 
+export default Skills

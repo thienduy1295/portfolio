@@ -86,7 +86,12 @@ const Page = () => {
                 My portfolio
               </Button>
             </Link>
-            <Link href="/CV_FullStackWeb_CaoThienDuy.pdf" download target="_blank" style={{ marginLeft: '1rem' }}>
+            <Link
+              href="/CV_FullStackWeb_CaoThienDuy.pdf"
+              download
+              target="_blank"
+              style={{ marginLeft: '1rem' }}
+            >
               <Button rightIcon={<DownloadIcon />} colorScheme="purple">
                 Resume
               </Button>
@@ -138,14 +143,22 @@ const Page = () => {
           <List>
             <ListItem>
               <Link as={NextLink} href="https://github.com/thienduy1295">
-               <Button variant='ghost' leftIcon={<IoLogoGithub />} colorScheme="teal">
-               @thienduy1295
+                <Button
+                  variant="ghost"
+                  leftIcon={<IoLogoGithub />}
+                  colorScheme="teal"
+                >
+                  @thienduy1295
                 </Button>
               </Link>
             </ListItem>
             <ListItem>
               <Link as={NextLink} href="https://www.linkedin.com/in/duycaoth/">
-                <Button variant='ghost' leftIcon={<IoLogoLinkedin />} colorScheme="teal">
+                <Button
+                  variant="ghost"
+                  leftIcon={<IoLogoLinkedin />}
+                  colorScheme="teal"
+                >
                   @duycaoth
                 </Button>
               </Link>
