@@ -1,5 +1,14 @@
 import { useState, useEffect } from 'react'
-import { Container, Heading, SimpleGrid, Divider, Box, Text, Button, Link } from '@chakra-ui/react'
+import {
+  Container,
+  Heading,
+  SimpleGrid,
+  Divider,
+  Box,
+  Text,
+  Button,
+  Link
+} from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import Section from '../../components/section'
@@ -16,33 +25,34 @@ const Posts = () => {
     const fetchPosts = async () => {
       try {
         // GitHub API URL for the dedicated blog repository
-        const apiUrl = 'https://api.github.com/repos/thienduy1295/blog-posts/contents/posts'
+        const apiUrl =
+          'https://api.github.com/repos/thienduy1295/blog-posts/contents/posts'
         const response = await fetch(apiUrl)
-        
+
         if (!response.ok) {
           throw new Error(`GitHub API error: ${response.status}`)
         }
-        
+
         const data = await response.json()
-        
+
         // Check if data is an array before filtering
         if (!Array.isArray(data)) {
           throw new Error('Invalid response format from GitHub API')
         }
-        
+
         // Filter for markdown files only
         const markdownFiles = data.filter(file => file.name.endsWith('.md'))
-        
+
         // For each markdown file, fetch its content and extract basic info
         const postsData = await Promise.all(
           markdownFiles.map(async file => {
             const contentResponse = await fetch(file.download_url)
             const content = await contentResponse.text()
-            
+
             // Extract title and date from frontmatter
             const titleMatch = content.match(/title:\s*(.+)/i)
             const dateMatch = content.match(/date:\s*(.+)/i)
-            
+
             return {
               id: file.name.replace('.md', ''),
               path: file.path,
@@ -53,7 +63,7 @@ const Posts = () => {
             }
           })
         )
-        
+
         // Sort posts by date (newest first)
         postsData.sort((a, b) => new Date(b.date) - new Date(a.date))
         setPosts(postsData)
@@ -64,7 +74,7 @@ const Posts = () => {
         setLoading(false)
       }
     }
-    
+
     fetchPosts()
   }, [])
 
@@ -82,20 +92,21 @@ const Posts = () => {
             <Box textAlign="center" my={8}>
               <Text color="red.500">Error: {error}</Text>
               <Text mt={2} fontSize="sm">
-                Make sure you have the posts directory in your thienduy1295/blog-posts repository
+                Make sure you have the posts directory in your
+                thienduy1295/blog-posts repository
               </Text>
             </Box>
           ) : posts.length > 0 ? (
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
               {posts.map(post => (
-                <Box 
-                  key={post.id} 
+                <Box
+                  key={post.id}
                   p={4}
                   borderWidth="1px"
                   borderRadius="lg"
                   cursor="pointer"
                   transition="all 0.2s"
-                  _hover={{ shadow: "md", transform: "translateY(-2px)" }}
+                  _hover={{ shadow: 'md', transform: 'translateY(-2px)' }}
                   onClick={() => router.push(`/posts/${post.id}`)}
                 >
                   <Heading as="h4" fontSize={16} mb={2}>
@@ -111,7 +122,8 @@ const Posts = () => {
             <Box textAlign="center">
               <Text>No posts found</Text>
               <Text mt={2} fontSize="sm">
-                Add some .md files to the posts directory in your thienduy1295/blog-posts repository
+                Add some .md files to the posts directory in your
+                thienduy1295/blog-posts repository
               </Text>
             </Box>
           )}
@@ -121,4 +133,4 @@ const Posts = () => {
   )
 }
 
-export default Posts 
+export default Posts

@@ -1,6 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Container, Box, Heading, Text, Link, Button, Divider, Code, UnorderedList, OrderedList, ListItem, Table, Thead, Tbody, Tr, Th, Td, Image } from '@chakra-ui/react'
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  Link,
+  Button,
+  Divider,
+  Code,
+  UnorderedList,
+  OrderedList,
+  ListItem,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Image
+} from '@chakra-ui/react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
@@ -13,7 +32,7 @@ import { ChevronLeftIcon } from '@chakra-ui/icons'
 const PostDetail = () => {
   const router = useRouter()
   const { id } = router.query
-  
+
   const [post, setPost] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -26,30 +45,32 @@ const PostDetail = () => {
         // GitHub API URL for the dedicated blog repository
         const apiUrl = `https://api.github.com/repos/thienduy1295/blog-posts/contents/posts/${id}.md`
         const response = await fetch(apiUrl)
-        
+
         if (!response.ok) {
           throw new Error('Post not found')
         }
 
         const data = await response.json()
-        
+
         // The content is base64 encoded, decode it
         const content = atob(data.content)
-        
+
         // Extract frontmatter (between --- markers)
         const frontmatterMatch = content.match(/---\s*([\s\S]*?)\s*---/)
         let frontmatter = ''
         let contentWithoutFrontmatter = content
-        
+
         if (frontmatterMatch && frontmatterMatch[0]) {
           frontmatter = frontmatterMatch[1]
-          contentWithoutFrontmatter = content.replace(frontmatterMatch[0], '').trim()
+          contentWithoutFrontmatter = content
+            .replace(frontmatterMatch[0], '')
+            .trim()
         }
-        
+
         // Extract title and date from frontmatter
         const titleMatch = frontmatter.match(/title:\s*(.+)/i)
         const dateMatch = frontmatter.match(/date:\s*(.+)/i)
-        
+
         setPost({
           id,
           title: titleMatch ? titleMatch[1].trim() : id,
@@ -63,25 +84,36 @@ const PostDetail = () => {
         setLoading(false)
       }
     }
-    
+
     fetchPost()
   }, [id])
 
   // Custom components for ReactMarkdown
   const components = {
-    h1: (props) => <Heading as="h1" size="xl" my={4} {...props} />,
-    h2: (props) => <Heading as="h2" size="lg" my={4} {...props} />,
-    h3: (props) => <Heading as="h3" size="md" my={3} {...props} />,
-    h4: (props) => <Heading as="h4" size="sm" my={2} {...props} />,
-    h5: (props) => <Heading as="h5" size="xs" my={1} {...props} />,
-    h6: (props) => <Heading as="h6" size="xs" my={1} {...props} />,
-    p: (props) => <Text my={4} lineHeight="taller" {...props} />,
-    a: (props) => <Link color="teal.500" isExternal textDecoration="underline" {...props} />,
-    ul: (props) => <UnorderedList my={4} pl={4} spacing={2} {...props} />,
-    ol: (props) => <OrderedList my={4} pl={4} spacing={2} {...props} />,
-    li: (props) => <ListItem pb={1} {...props} />,
-    blockquote: (props) => (
-      <Box borderLeftWidth="4px" borderLeftColor="gray.200" pl={4} py={2} my={6} bg="gray.50" _dark={{ bg: "gray.700", borderLeftColor: "gray.500" }} {...props} />
+    h1: props => <Heading as="h1" size="xl" my={4} {...props} />,
+    h2: props => <Heading as="h2" size="lg" my={4} {...props} />,
+    h3: props => <Heading as="h3" size="md" my={3} {...props} />,
+    h4: props => <Heading as="h4" size="sm" my={2} {...props} />,
+    h5: props => <Heading as="h5" size="xs" my={1} {...props} />,
+    h6: props => <Heading as="h6" size="xs" my={1} {...props} />,
+    p: props => <Text my={4} lineHeight="taller" {...props} />,
+    a: props => (
+      <Link color="teal.500" isExternal textDecoration="underline" {...props} />
+    ),
+    ul: props => <UnorderedList my={4} pl={4} spacing={2} {...props} />,
+    ol: props => <OrderedList my={4} pl={4} spacing={2} {...props} />,
+    li: props => <ListItem pb={1} {...props} />,
+    blockquote: props => (
+      <Box
+        borderLeftWidth="4px"
+        borderLeftColor="gray.200"
+        pl={4}
+        py={2}
+        my={6}
+        bg="gray.50"
+        _dark={{ bg: 'gray.700', borderLeftColor: 'gray.500' }}
+        {...props}
+      />
     ),
     // Handle inline code with styling
     code: ({ inline, className, children, ...props }) => {
@@ -93,8 +125,8 @@ const PostDetail = () => {
             bg="purple.50"
             color="purple.700"
             _dark={{
-              bg: "purple.900",
-              color: "purple.200",
+              bg: 'purple.900',
+              color: 'purple.200'
             }}
             px={2}
             py={0.5}
@@ -108,30 +140,34 @@ const PostDetail = () => {
           >
             {children}
           </Code>
-        );
+        )
       }
-      
+
       // Block code is handled by rehypeHighlight
-      return <code className={className} {...props}>{children}</code>;
+      return (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      )
     },
     // Style code blocks
     pre: ({ children, className, ...props }) => {
       // Extract language class if available
-      const match = /language-(\w+)/.exec(className || '');
-      const language = match ? match[1] : 'code';
-      
+      const match = /language-(\w+)/.exec(className || '')
+      const language = match ? match[1] : 'code'
+
       return (
         <Box
           as="pre"
           borderRadius="md"
-          overflow="hidden" 
+          overflow="hidden"
           my={6}
           boxShadow="md"
           border="1px solid"
           borderColor="gray.200"
-          _dark={{ 
-            bg: "gray.800",
-            borderColor: "gray.600" 
+          _dark={{
+            bg: 'gray.800',
+            borderColor: 'gray.600'
           }}
           p={0}
           fontSize="sm"
@@ -147,9 +183,9 @@ const PostDetail = () => {
             borderBottom="1px solid"
             borderColor="purple.100"
             _dark={{
-              bg: "purple.900",
-              color: "purple.200",
-              borderColor: "purple.800"
+              bg: 'purple.900',
+              color: 'purple.200',
+              borderColor: 'purple.800'
             }}
           >
             {language}
@@ -158,15 +194,17 @@ const PostDetail = () => {
             {children}
           </Box>
         </Box>
-      );
+      )
     },
-    table: (props) => <Table variant="simple" my={6} fontSize="sm" {...props} />,
-    thead: (props) => <Thead bg="gray.50" _dark={{ bg: "gray.700" }} {...props} />,
-    tbody: (props) => <Tbody {...props} />,
-    tr: (props) => <Tr {...props} />,
-    th: (props) => <Th p={2} {...props} />,
-    td: (props) => <Td p={2} {...props} />,
-    img: (props) => <Image my={4} rounded="md" maxW="100%" {...props} />,
+    table: props => <Table variant="simple" my={6} fontSize="sm" {...props} />,
+    thead: props => (
+      <Thead bg="gray.50" _dark={{ bg: 'gray.700' }} {...props} />
+    ),
+    tbody: props => <Tbody {...props} />,
+    tr: props => <Tr {...props} />,
+    th: props => <Th p={2} {...props} />,
+    td: props => <Td p={2} {...props} />,
+    img: props => <Image my={4} rounded="md" maxW="100%" {...props} />
   }
 
   return (
@@ -174,7 +212,11 @@ const PostDetail = () => {
       <Container>
         <Box mb={6}>
           <NextLink href="/posts" passHref>
-            <Button leftIcon={<ChevronLeftIcon />} colorScheme="teal" variant="ghost">
+            <Button
+              leftIcon={<ChevronLeftIcon />}
+              colorScheme="teal"
+              variant="ghost"
+            >
               Back to Posts
             </Button>
           </NextLink>
@@ -219,4 +261,4 @@ const PostDetail = () => {
   )
 }
 
-export default PostDetail 
+export default PostDetail
