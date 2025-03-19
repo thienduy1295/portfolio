@@ -1,11 +1,5 @@
 import { useState, useEffect } from 'react'
-import {
-  Container,
-  Heading,
-  SimpleGrid,
-  Box,
-  Text
-} from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid, Box, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import Section from '../../components/section'
 import Layout from '../../components/layouts/article'

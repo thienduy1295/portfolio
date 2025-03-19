@@ -63,7 +63,7 @@ export const WorkGridItem = ({
               alt={title}
               className="grid-item-thumbnail"
               placeholder="blur"
-              loading={priority ? "eager" : "lazy"}
+              loading={priority ? 'eager' : 'lazy'}
               priority={priority}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

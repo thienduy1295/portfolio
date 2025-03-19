@@ -204,7 +204,9 @@ const PostDetail = () => {
     tr: props => <Tr {...props} />,
     th: props => <Th p={2} {...props} />,
     td: props => <Td p={2} {...props} />,
-    img: props => <Image my={4} rounded="md" maxW="100%" alt={props.alt || ''} {...props} />
+    img: props => (
+      <Image my={4} rounded="md" maxW="100%" alt={props.alt || ''} {...props} />
+    )
   }
 
   return (
