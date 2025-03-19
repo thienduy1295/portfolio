@@ -27,7 +27,8 @@ export const WorkGridItem = ({
   _category = 'works',
   id,
   title,
-  thumbnail
+  thumbnail,
+  priority = false
 }) => {
   const [isLoading, setIsLoading] = useState(true)
 
@@ -54,6 +55,7 @@ export const WorkGridItem = ({
                 height="100%"
                 startColor="teal.50"
                 endColor="teal.200"
+                borderRadius="12px"
               />
             )}
             <Image
@@ -61,8 +63,10 @@ export const WorkGridItem = ({
               alt={title}
               className="grid-item-thumbnail"
               placeholder="blur"
-              loading="lazy"
+              loading={priority ? "eager" : "lazy"}
+              priority={priority}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{
                 objectFit: 'cover',
                 opacity: isLoading ? 0 : 1,

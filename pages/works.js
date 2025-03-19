@@ -17,7 +17,12 @@ const Works = () => {
 
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
           <Section>
-            <WorkGridItem id="netflix" title="Netflix" thumbnail={netflix}>
+            <WorkGridItem 
+              id="netflix" 
+              title="Netflix" 
+              thumbnail={netflix}
+              priority={true}
+            >
               A website build with ReactJS, Material UI and Tailwind CSS. It
               uses The Movie Database API to fetch movies and display them on
               the website.
