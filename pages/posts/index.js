@@ -3,16 +3,11 @@ import {
   Container,
   Heading,
   SimpleGrid,
-  Divider,
   Box,
-  Text,
-  Button,
-  Link
+  Text
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import NextLink from 'next/link'
 import Section from '../../components/section'
-import { GridItem } from '../../components/grid-item'
 import Layout from '../../components/layouts/article'
 
 const Posts = () => {
