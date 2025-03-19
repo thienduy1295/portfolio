@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Container, Box, Heading, Text, Link, Button, Divider, Code, UnorderedList, OrderedList, ListItem, Table, Thead, Tbody, Tr, Th, Td, Image, useColorModeValue } from '@chakra-ui/react'
+import { Container, Box, Heading, Text, Link, Button, Divider, Code, UnorderedList, OrderedList, ListItem, Table, Thead, Tbody, Tr, Th, Td, Image } from '@chakra-ui/react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
@@ -83,65 +83,38 @@ const PostDetail = () => {
     blockquote: (props) => (
       <Box borderLeftWidth="4px" borderLeftColor="gray.200" pl={4} py={2} my={6} bg="gray.50" _dark={{ bg: "gray.700", borderLeftColor: "gray.500" }} {...props} />
     ),
-    // Just handle inline code - the block code will be handled by rehypeHighlight
+    // Handle inline code with styling
     code: ({ inline, className, children, ...props }) => {
       // Only process inline code - block code is handled by rehypeHighlight
       if (inline) {
-        // Convert children to string to handle all content types
-        const codeContent = String(children).replace(/\n$/, '');
-        
         return (
-          <Box
+          <Code
             as="span"
-            display="inline-flex"
-            alignItems="center"
-            verticalAlign="middle"
+            bg="purple.50"
+            color="purple.700"
+            _dark={{
+              bg: "purple.900",
+              color: "purple.200",
+            }}
+            px={2}
+            py={0.5}
+            mx={1}
+            borderRadius="md"
+            fontSize="0.85em"
+            fontWeight="medium"
+            boxShadow="sm"
+            whiteSpace="nowrap"
+            {...props}
           >
-            <Text
-              as="span"
-              color="purple.500"
-              _dark={{ color: "purple.300" }}
-              fontWeight="bold"
-              fontSize="xs"
-              mr={0.5}
-            >
-              `
-            </Text>
-            <Code
-              as="span"
-              bg="purple.50"
-              color="purple.700"
-              _dark={{
-                bg: "purple.900",
-                color: "purple.200",
-              }}
-              px={2}
-              py={0.5}
-              borderRadius="md"
-              fontSize="0.85em"
-              fontWeight="medium"
-              boxShadow="sm"
-              whiteSpace="nowrap"
-              dangerouslySetInnerHTML={{ __html: codeContent }}
-            />
-            <Text
-              as="span"
-              color="purple.500"
-              _dark={{ color: "purple.300" }}
-              fontWeight="bold"
-              fontSize="xs"
-              ml={0.5}
-            >
-              `
-            </Text>
-          </Box>
+            {children}
+          </Code>
         );
       }
       
       // Block code is handled by rehypeHighlight
-      return <code {...props}>{children}</code>;
+      return <code className={className} {...props}>{children}</code>;
     },
-    // Style code blocks (which will now be pre > code thanks to rehypeHighlight)
+    // Style code blocks
     pre: ({ children, className, ...props }) => {
       // Extract language class if available
       const match = /language-(\w+)/.exec(className || '');
@@ -156,7 +129,6 @@ const PostDetail = () => {
           boxShadow="md"
           border="1px solid"
           borderColor="gray.200"
-          bg="gray.50"
           _dark={{ 
             bg: "gray.800",
             borderColor: "gray.600" 
