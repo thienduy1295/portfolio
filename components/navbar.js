@@ -26,9 +26,44 @@ const LinkItem = ({ href, target, path, children, ...props }) => {
       href={href}
       scroll={false}
       p={2}
-      bg={active ? 'grassTeal' : undefined}
       color={active ? '#202023' : inactiveColor}
       target={target}
+      borderRadius="md"
+      position="relative"
+      _hover={{
+        textDecoration: 'none',
+        bg: useColorModeValue(
+          'rgba(154, 230, 180, 0.2)',
+          'rgba(154, 230, 180, 0.1)'
+        ),
+        _after: !active
+          ? {
+              transform: 'scaleX(1)',
+              transformOrigin: 'bottom left'
+            }
+          : {}
+      }}
+      transition="all 0.3s ease"
+      sx={
+        active
+          ? {
+              bg: 'grassTeal'
+            }
+          : {
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: '0',
+                left: '0',
+                right: '0',
+                height: '2px',
+                bg: 'grassTeal',
+                transform: 'scaleX(0)',
+                transformOrigin: 'bottom right',
+                transition: 'transform 0.3s ease'
+              }
+            }
+      }
       {...props}
     >
       {children}
@@ -45,6 +80,13 @@ const MenuLinkItem = ({ href, path, children }) => {
       href={href}
       bg={active ? 'grassTeal' : undefined}
       color={active ? '#202023' : inactiveColor}
+      _hover={{
+        bg: useColorModeValue(
+          'rgba(154, 230, 180, 0.2)',
+          'rgba(154, 230, 180, 0.1)'
+        )
+      }}
+      transition="all 0.2s ease"
     >
       {children}
     </MenuItem>

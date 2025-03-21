@@ -11,12 +11,14 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import { BioSection, BioYear } from '../components/bio'
+// Keeping import commented in case it's needed elsewhere
+// import { BioSection, BioYear } from '../components/bio'
 import Paragraph from '../components/paragraph'
 import Section from '../components/section'
 import { TypeAnimation } from 'react-type-animation'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 import Layout from '../components/layouts/article'
+import { Timeline, TimelineEvent } from '../components/timeline'
 
 const Page = () => {
   return (
@@ -104,36 +106,37 @@ const Page = () => {
             Bio
           </Heading>
 
-          <BioSection>
-            <BioYear>1995</BioYear>- Born in Ho Chi Minh City, Vietnam
-          </BioSection>
-          <BioSection>
-            <BioYear>2017</BioYear>- Completed my bachelor&apos;s degree in
-            Computer Science at TDT University
-          </BioSection>
-          <BioSection>
-            <BioYear>2020</BioYear>- Participated in compulsory military service
-            with the rank of Private, serving as the Information Platoon Leader
-            under the command of the city&apos;s military headquarters.
-          </BioSection>
-          <BioSection>
-            <BioYear>2022</BioYear>
-            - Studied and worked at Hiệp Phước Mechanical Engineering Company,
-            specializing in programming and operating CNC machine systems.
-            <br />- Studied Full-stack web development at CoderSchool
-          </BioSection>
-          <BioSection>
-            <BioYear>Now</BioYear>- Working at bTaskee company limited as
-            Full-stack Engineer
-          </BioSection>
+          <Timeline>
+            <TimelineEvent year="1995">
+              Born in Ho Chi Minh City, Vietnam
+            </TimelineEvent>
+            <TimelineEvent year="2017">
+              Completed my bachelor&apos;s degree in Computer Science at TDT
+              University
+            </TimelineEvent>
+            <TimelineEvent year="2020">
+              Participated in compulsory military service with the rank of
+              Private, serving as the Information Platoon Leader under the
+              command of the city&apos;s military headquarters.
+            </TimelineEvent>
+            <TimelineEvent year="2022">
+              Studied and worked at Hiệp Phước Mechanical Engineering Company,
+              specializing in programming and operating CNC machine systems.
+              <br />
+              Studied Full-stack web development at CoderSchool
+            </TimelineEvent>
+            <TimelineEvent year="Now">
+              Working at bTaskee company limited as Full-stack Engineer
+            </TimelineEvent>
+          </Timeline>
         </Section>
         <Section delay={0.3}>
           <Heading as="h3" variant="section-title">
             I ❤️
           </Heading>
-          <BioSection>
+          <Box pl={4}>
             Art, Music, Travel, Animal, Photography, Reading, Writing, Coding
-          </BioSection>
+          </Box>
         </Section>
 
         <Section delay={0.3}>

@@ -6,6 +6,7 @@ import Section from '../components/section'
 import netflix from '../public/images/netflix-mui.png'
 import mh1 from '../public/images/mh1.png'
 import locationPicker from '../public/images/location-picker.png'
+import storybook from '../public/images/storybook.png'
 
 const Works = () => {
   return (
@@ -48,6 +49,18 @@ const Works = () => {
               autocomplete, customizable markers, and real-time coordinate
               tracking. Perfect for applications requiring precise location
               selection with a polished user interface.
+            </WorkGridItem>
+          </Section>
+          <Section>
+            <WorkGridItem
+              id="video-examples"
+              title="Advanced Table Component"
+              thumbnail={storybook}
+            >
+              A feature-rich React table component with sorting, pagination, and
+              filtering capabilities. Built with TypeScript and showcased
+              through Storybook, this component demonstrates my approach to
+              creating reusable UI components with comprehensive documentation.
             </WorkGridItem>
           </Section>
         </SimpleGrid>

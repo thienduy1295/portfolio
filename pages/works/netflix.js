@@ -4,7 +4,7 @@ import NextLink from 'next/link'
 
 import Layout from '../../components/layouts/article'
 import P from '../../components/paragraph'
-import { Meta, Title, WorkImage } from '../../components/work'
+import { Meta, Title, WorkImage, WorkVideo } from '../../components/work'
 
 const Work = () => {
   return (
@@ -36,6 +36,12 @@ const Work = () => {
         </List>
 
         <WorkImage src="/images/netflix-1.png" alt="Netflix" />
+
+        {/* Example of embedding a YouTube video */}
+        <WorkVideo
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+          title="Netflix Clone Demo"
+        />
 
         <WorkImage src="/images/netflix-2.png" alt="Netflix" />
       </Container>
