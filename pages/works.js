@@ -53,8 +53,8 @@ const Works = () => {
           </Section>
           <Section>
             <WorkGridItem
-              id="video-examples"
-              title="Advanced Table Component"
+              id="Storybook"
+              title="Storybook - React Table Component"
               thumbnail={storybook}
             >
               A feature-rich React table component with sorting, pagination, and
