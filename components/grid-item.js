@@ -33,31 +33,46 @@ export const WorkGridItem = ({
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <Box w="100%" textAlign="center">
-      <LinkBox cursor="pointer">
-        <Box position="relative" width="100%" paddingBottom="56.25%">
+    <Box w="100%" mb={8}>
+      <LinkBox
+        cursor="pointer"
+        transition="all 0.3s"
+        _hover={{ transform: 'translateY(-8px)' }}
+      >
+        <Box
+          position="relative"
+          width="100%"
+          height="0"
+          paddingBottom="65%" /* More square-like aspect ratio */
+          overflow="hidden"
+          borderRadius="xl"
+          mx="auto"
+          boxShadow="lg"
+          mb={3}
+          border="1px solid"
+          borderColor="gray.100"
+        >
+          {isLoading && (
+            <Skeleton
+              position="absolute"
+              top="0"
+              left="0"
+              width="100%"
+              height="100%"
+              startColor="teal.50"
+              endColor="teal.200"
+              borderRadius="xl"
+              zIndex="1"
+            />
+          )}
           <Box
             position="absolute"
             top="0"
             left="0"
             width="100%"
             height="100%"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
+            backgroundColor="white"
           >
-            {isLoading && (
-              <Skeleton
-                position="absolute"
-                top="0"
-                left="0"
-                width="100%"
-                height="100%"
-                startColor="teal.50"
-                endColor="teal.200"
-                borderRadius="12px"
-              />
-            )}
             <Image
               src={thumbnail}
               alt={title}
@@ -69,19 +84,22 @@ export const WorkGridItem = ({
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{
                 objectFit: 'cover',
+                objectPosition: 'center',
                 opacity: isLoading ? 0 : 1,
-                transition: 'opacity 0.5s ease-in-out'
+                transition: 'all 0.5s ease-in-out'
               }}
               onLoadingComplete={() => setIsLoading(false)}
             />
           </Box>
         </Box>
         <LinkOverlay as={NextLink} href={`/works/${id}`}>
-          <Text mt={2} fontSize={20}>
+          <Text mt={2} fontSize={20} fontWeight="bold" lineHeight="shorter">
             {title}
           </Text>
         </LinkOverlay>
-        <Text fontSize={14}>{children}</Text>
+        <Text fontSize={15} mt={1} color="gray.500" lineHeight="tall">
+          {children}
+        </Text>
       </LinkBox>
     </Box>
   )
@@ -91,7 +109,11 @@ export const GridItemStyle = () => (
   <Global
     styles={`
     .grid-item-thumbnail {
-      border-radius: 12px
+      border-radius: 12px;
+      margin: auto;
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
     }
   `}
   />
