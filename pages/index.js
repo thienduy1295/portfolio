@@ -14,24 +14,13 @@ import {
   Icon
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
-// Keeping import commented in case it's needed elsewhere
-// import { BioSection, BioYear } from '../components/bio'
 import Paragraph from '../components/paragraph'
 import Section from '../components/section'
 import { TypeAnimation } from 'react-type-animation'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 import Layout from '../components/layouts/article'
 import { Timeline, TimelineEvent } from '../components/timeline'
-import {
-  IoMusicalNotesOutline,
-  IoBrushOutline,
-  IoAirplaneOutline,
-  IoPawOutline,
-  IoCameraOutline,
-  IoBookOutline,
-  IoPencilOutline,
-  IoCodeSlashOutline
-} from 'react-icons/io5'
+import { IoMusicalNotesOutline, IoBrushOutline, IoAirplaneOutline, IoPawOutline, IoCameraOutline, IoBookOutline, IoPencilOutline, IoCodeSlashOutline } from 'react-icons/io5'
 
 const Page = () => {
   return (
@@ -139,121 +128,74 @@ const Page = () => {
           <Heading as="h3" variant="section-title">
             Work
           </Heading>
-
-          <Box
-            p={4}
-            bg={useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')}
+          
+          <Box 
+            p={4} 
+            bg={useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')} 
             borderRadius="lg"
             boxShadow="sm"
             mb={4}
           >
-            <Heading
-              as="h4"
-              fontSize="lg"
-              mb={3}
-              color={useColorModeValue('teal.600', 'teal.200')}
-            >
+            <Heading as="h4" fontSize="lg" mb={3} color={useColorModeValue('teal.600', 'teal.200')}>
               👋 Hi there!
             </Heading>
             <Paragraph>
-              I&apos;m Thien Duy, a passionate Full-stack Developer who turns
-              coffee into code! With 3 years of crafting digital experiences, I
-              specialize in building web applications that don&apos;t just work
-              – they wow.
+              I&apos;m Thien Duy, a passionate Full-stack Developer
+              who turns coffee into code! With 3 years of crafting digital
+              experiences, I specialize in building web applications that
+              don&apos;t just work – they wow.
             </Paragraph>
           </Box>
-
+          
           <SimpleGrid columns={[1, null, 2]} gap={4} mb={4}>
-            <Box
-              p={4}
-              borderLeft="4px solid"
-              borderColor="teal.400"
+            <Box 
+              p={4} 
+              borderLeft="4px solid" 
+              borderColor="teal.400" 
               bg={useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')}
               borderRadius="md"
             >
-              <Text
-                fontWeight="bold"
-                mb={2}
-                color={useColorModeValue('teal.600', 'teal.200')}
-              >
-                Frontend Excellence
-              </Text>
-              <Text fontSize="sm">
-                Creating pixel-perfect interfaces with React, focusing on
-                responsive design and smooth user experiences.
-              </Text>
+              <Text fontWeight="bold" mb={2} color={useColorModeValue('teal.600', 'teal.200')}>Frontend Excellence</Text>
+              <Text fontSize="sm">Creating pixel-perfect interfaces with React, focusing on responsive design and smooth user experiences.</Text>
             </Box>
-
-            <Box
-              p={4}
-              borderLeft="4px solid"
-              borderColor="purple.400"
+            
+            <Box 
+              p={4} 
+              borderLeft="4px solid" 
+              borderColor="purple.400" 
               bg={useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')}
               borderRadius="md"
             >
-              <Text
-                fontWeight="bold"
-                mb={2}
-                color={useColorModeValue('purple.600', 'purple.200')}
-              >
-                Backend Expertise
-              </Text>
-              <Text fontSize="sm">
-                Building robust APIs and server architectures that handle
-                complex business logic efficiently.
-              </Text>
+              <Text fontWeight="bold" mb={2} color={useColorModeValue('purple.600', 'purple.200')}>Backend Expertise</Text>
+              <Text fontSize="sm">Building robust APIs and server architectures that handle complex business logic efficiently.</Text>
             </Box>
-
-            <Box
-              p={4}
-              borderLeft="4px solid"
-              borderColor="blue.400"
+            
+            <Box 
+              p={4} 
+              borderLeft="4px solid" 
+              borderColor="blue.400" 
               bg={useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')}
               borderRadius="md"
             >
-              <Text
-                fontWeight="bold"
-                mb={2}
-                color={useColorModeValue('blue.600', 'blue.200')}
-              >
-                Problem Solver
-              </Text>
-              <Text fontSize="sm">
-                I love tackling complex puzzles and creating elegant solutions
-                that make a difference.
-              </Text>
+              <Text fontWeight="bold" mb={2} color={useColorModeValue('blue.600', 'blue.200')}>Problem Solver</Text>
+              <Text fontSize="sm">I love tackling complex puzzles and creating elegant solutions that make a difference.</Text>
             </Box>
-
-            <Box
-              p={4}
-              borderLeft="4px solid"
-              borderColor="orange.400"
+            
+            <Box 
+              p={4} 
+              borderLeft="4px solid" 
+              borderColor="orange.400" 
               bg={useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')}
               borderRadius="md"
             >
-              <Text
-                fontWeight="bold"
-                mb={2}
-                color={useColorModeValue('orange.600', 'orange.200')}
-              >
-                Continuous Learner
-              </Text>
-              <Text fontSize="sm">
-                Always experimenting with new technologies and contributing to
-                open-source projects.
-              </Text>
+              <Text fontWeight="bold" mb={2} color={useColorModeValue('orange.600', 'orange.200')}>Continuous Learner</Text>
+              <Text fontSize="sm">Always experimenting with new technologies and contributing to open-source projects.</Text>
             </Box>
           </SimpleGrid>
-
+          
           <Box align="center" my={6}>
             <Link as={NextLink} href="/works">
-              <Button
-                rightIcon={<ChevronRightIcon />}
-                colorScheme="teal"
-                size="md"
-                mr={3}
-                boxShadow="sm"
-              >
+              <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" size="md" mr={3} boxShadow="sm">
                 My portfolio
               </Button>
             </Link>
@@ -262,12 +204,7 @@ const Page = () => {
               download
               target="_blank"
             >
-              <Button
-                rightIcon={<DownloadIcon />}
-                colorScheme="purple"
-                size="md"
-                boxShadow="sm"
-              >
+              <Button rightIcon={<DownloadIcon />} colorScheme="purple" size="md" boxShadow="sm">
                 Resume
               </Button>
             </Link>
@@ -308,133 +245,93 @@ const Page = () => {
             I ❤️
           </Heading>
           <SimpleGrid columns={[2, 3, 4]} gap={3} mt={3}>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
-              <Icon
-                as={IoMusicalNotesOutline}
-                w={6}
-                h={6}
-                color="pink.500"
-                mb={1}
-              />
-              <Text fontSize="sm" fontWeight="medium">
-                Music
-              </Text>
+              <Icon as={IoMusicalNotesOutline} w={6} h={6} color="pink.500" mb={1} />
+              <Text fontSize="sm" fontWeight="medium">Music</Text>
             </Box>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
               <Icon as={IoBrushOutline} w={6} h={6} color="blue.500" mb={1} />
-              <Text fontSize="sm" fontWeight="medium">
-                Art
-              </Text>
+              <Text fontSize="sm" fontWeight="medium">Art</Text>
             </Box>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
-              <Icon
-                as={IoAirplaneOutline}
-                w={6}
-                h={6}
-                color="green.500"
-                mb={1}
-              />
-              <Text fontSize="sm" fontWeight="medium">
-                Travel
-              </Text>
+              <Icon as={IoAirplaneOutline} w={6} h={6} color="green.500" mb={1} />
+              <Text fontSize="sm" fontWeight="medium">Travel</Text>
             </Box>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
               <Icon as={IoPawOutline} w={6} h={6} color="orange.500" mb={1} />
-              <Text fontSize="sm" fontWeight="medium">
-                Animals
-              </Text>
+              <Text fontSize="sm" fontWeight="medium">Animals</Text>
             </Box>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
-              <Icon
-                as={IoCameraOutline}
-                w={6}
-                h={6}
-                color="purple.500"
-                mb={1}
-              />
-              <Text fontSize="sm" fontWeight="medium">
-                Photography
-              </Text>
+              <Icon as={IoCameraOutline} w={6} h={6} color="purple.500" mb={1} />
+              <Text fontSize="sm" fontWeight="medium">Photography</Text>
             </Box>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
               <Icon as={IoBookOutline} w={6} h={6} color="yellow.500" mb={1} />
-              <Text fontSize="sm" fontWeight="medium">
-                Reading
-              </Text>
+              <Text fontSize="sm" fontWeight="medium">Reading</Text>
             </Box>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
               <Icon as={IoPencilOutline} w={6} h={6} color="red.500" mb={1} />
-              <Text fontSize="sm" fontWeight="medium">
-                Writing
-              </Text>
+              <Text fontSize="sm" fontWeight="medium">Writing</Text>
             </Box>
-            <Box
-              p={3}
-              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            <Box 
+              p={3} 
+              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} 
               borderRadius="md"
               textAlign="center"
               transition="all 0.3s"
               _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
             >
-              <Icon
-                as={IoCodeSlashOutline}
-                w={6}
-                h={6}
-                color="teal.500"
-                mb={1}
-              />
-              <Text fontSize="sm" fontWeight="medium">
-                Coding
-              </Text>
+              <Icon as={IoCodeSlashOutline} w={6} h={6} color="teal.500" mb={1} />
+              <Text fontSize="sm" fontWeight="medium">Coding</Text>
             </Box>
           </SimpleGrid>
         </Section>
