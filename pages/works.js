@@ -3,10 +3,11 @@ import { Container, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import { WorkGridItem } from '../components/grid-item'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
-import netflix from '../public/images/netflix-mui.png'
-import mh1 from '../public/images/mh1.png'
 import locationPicker from '../public/images/location-picker.png'
+import mh1 from '../public/images/mh1.png'
+import netflix from '../public/images/netflix-mui.png'
 import storybook from '../public/images/storybook.png'
+import taskio from '../public/images/task-io.png'
 
 const Works = () => {
   return (
@@ -22,6 +23,15 @@ const Works = () => {
         </Section>
 
         <SimpleGrid columns={[1, null, 2]} spacing={8} mx="auto">
+          <WorkGridItem
+            id="TaskIO"
+            title="TaskIO"
+            thumbnail={taskio}
+            priority={true}
+          >
+            A task management app build with ReactJS, Tailwind CSS and
+            TypeScript. It allows you to create, edit, and delete tasks.
+          </WorkGridItem>
           <WorkGridItem
             id="netflix"
             title="Netflix"
